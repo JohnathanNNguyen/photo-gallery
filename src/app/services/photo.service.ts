@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
@@ -46,7 +47,7 @@ export class PhotoService {
     this.photos = JSON.parse(photoList.value) || [];
     // eslint-disable-next-line prefer-const
     if (!this.platform.is('hybrid')) {
-      for (const photo of this.photos) {
+      for (let photo of this.photos) {
         const readFile = await Filesystem.readFile({
           path: photo.filepath,
           directory: FilesystemDirectory.Data,
